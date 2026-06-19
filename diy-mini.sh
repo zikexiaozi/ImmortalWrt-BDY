@@ -10,7 +10,6 @@
 # sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 
-
 # 拉取仓库文件夹
 merge_package() {
 	# 参数1是分支名,参数2是库地址,参数3是所有文件下载到指定路径。
@@ -101,6 +100,11 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 # 定时限速插件
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
+git clone --depth=1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
+git clone --depth=1 https://github.com/sirpdboy/luci-app-advancedplus.git package/luci-app-advancedplus
+
+echo "CONFIG_PACKAGE_luci-app-partexp=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 
 
 #上游已经把编译器资源包删除了，先禁用吧
